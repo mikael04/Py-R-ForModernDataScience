@@ -1,0 +1,58 @@
+---
+title: "Py-R-bilinguist"
+format: html
+editor: visual
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+## Se usar RMarkdown
+# knitr::knit_engires$set(python = reticulate::eng_python)
+```
+```{r, setup-py}
+#| include: false
+#| 
+library(reticulate)
+## Se tiver problema criando o venv, rodar: python3 -m pip install virtualenv
+virtualenv_create("py-r-bilinguist")
+py_install(c("seaborn", "scikit-learn", "pandas", "numpy"), envname = "py-r-bilinguist")
+use_virtualenv("py-r-bilinguist", required = TRUE)
+reticulate::py_discover_config()
+
+```
+
+
+## Python
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+```{python}
+a = 3.14
+a
+```
+
+## R
+
+```{r}
+b <- 42
+head(PlantGrowth)
+py$a
+```
+
+
+```{python}
+r.PlantGrowth.head()
+```
+
+
+```{python}
+from sklearn.datasets import load_iris
+
+iris = load_iris()
+iris.data[:6]
+```
+
+
+```{r}
+py$iris$data
+```

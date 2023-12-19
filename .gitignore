@@ -1,0 +1,7 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+data/*
+py-r-bilinguist_files/*
+cap7_files/*
